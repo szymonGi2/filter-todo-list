@@ -1,75 +1,140 @@
-# React + TypeScript + Vite
+# Filter Todo List
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Prosta aplikacja do zarządzania listą zadań stworzona w React z TypeScript oraz Vite. Umożliwia dodawanie, filtrowanie, oznaczanie jako wykonane i usuwanie zadań.
 
-Currently, two official plugins are available:
+## Cel projektu
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Aplikacja została przygotowana jako małe, czytelne narzędzie do organizacji codziennych obowiązków. Pozwala szybko zapisywać zadania, rozdzielać je na kategorie oraz kontrolować, które z nich są jeszcze w toku, a które zostały już wykonane.
 
-## React Compiler
+## Główne funkcje
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- dodawanie nowych zadań,
+- wybór typu zadania: Work lub Personal,
+- filtrowanie zadań po statusie:
+  - Wszystkie,
+  - W trakcie,
+  - Ukończone,
+- oznaczanie zadania jako wykonane lub niewykonane,
+- usuwanie zadań z listy,
+- przejrzysty interfejs z kolorowymi oznaczeniami kategorii.
 
-## Expanding the ESLint configuration
+## Stack technologiczny
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- React 19
+- TypeScript
+- Vite
+- react-icons
+- CSS
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Wymagania
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Aby uruchomić projekt lokalnie, potrzebujesz:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- Node.js w wersji 18 lub nowszej,
+- menedżera pakietów npm.
 
+## Uruchomienie projektu
+
+1. Otwórz terminal w katalogu projektu.
+2. Zainstaluj zależności:
+
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+3. Uruchom aplikację w trybie developerskim:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+npm run dev
 ```
+
+4. Po chwili w terminalu pojawi się adres lokalny, np.:
+
+```bash
+http://localhost:5173
+```
+
+5. Otwórz ten adres w przeglądarce, aby korzystać z aplikacji.
+
+## Budowanie wersji produkcyjnej
+
+Aby przygotować finalną wersję projektu:
+
+```bash
+npm run build
+```
+
+Wynik zostanie zapisany do katalogu `dist`.
+
+Możesz też uruchomić podgląd zbudowanej wersji:
+
+```bash
+npm run preview
+```
+
+## Jak korzystać z aplikacji
+
+### 1. Dodanie zadania
+
+- wpisz treść zadania w pole tekstowe,
+- wybierz kategorię: `Work` lub `Personal`,
+- kliknij przycisk z ikoną plusa.
+
+Zadanie pojawi się na liście od razu po dodaniu.
+
+### 2. Oznaczenie zadania jako wykonane
+
+- kliknij zieloną ikonę obok zadania,
+- zadanie zostanie oznaczone jako ukończone,
+- w widoku zadań ukończone są przekreślane i zmieniają kolor.
+
+### 3. Filtrowanie listy
+
+W sekcji `Filter by` możesz wybrać jeden z dostępnych filtrów:
+
+- `All` — wszystkie zadania,
+- `In Progress` — zadania jeszcze nieukończone,
+- `Completed` — zadania wykonane.
+
+### 4. Usuwanie zadania
+
+- kliknij czerwoną ikonę z krzyżykiem obok zadania,
+- zadanie zostanie usunięte z listy.
+
+## Struktura projektu
+
+```text
+filter-todo-list/
+├── public/
+├── src/
+│   ├── App.css
+│   ├── App.tsx
+│   ├── index.css
+│   └── main.tsx
+├── index.html
+├── package.json
+├── tsconfig.json
+├── vite.config.ts
+├── eslint.config.js
+└── README.md
+```
+
+### Najważniejsze pliki
+
+- `src/App.tsx` — logika aplikacji i renderowanie interfejsu,
+- `src/App.css` — style widoku,
+- `src/main.tsx` — punkt wejścia aplikacji,
+- `package.json` — skrypty uruchomieniowe i zależności.
+
+## Przykładowy flow pracy
+
+```text
+Wpisz zadanie -> wybierz typ -> dodaj -> obejrzyj listę -> oznacz wykonanie -> filtrowanie -> usuń, jeśli nie jest potrzebne
+```
+
+## Podsumowanie
+
+To narzędzie jest świetnym przykładem prostego, ale praktycznego menedżera zadań w React. Jest lekkie, łatwe w obsłudze i dobrze nadaje się do nauki pracy z komponentami, stanem aplikacji oraz filtrowaniem danych.
+
+Jeśli chcesz, mogę też przygotować wersję tej dokumentacji w bardziej profesjonalnym stylu z sekcjami: "Architektura", "Zarządzanie stanem", "Rozszerzenia" oraz "Roadmapa rozwoju".
+
