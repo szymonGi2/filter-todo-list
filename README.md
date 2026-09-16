@@ -136,5 +136,4 @@ Wpisz zadanie -> wybierz typ -> dodaj -> obejrzyj listę -> oznacz wykonanie -> 
 
 To narzędzie jest świetnym przykładem prostego, ale praktycznego menedżera zadań w React. Jest lekkie, łatwe w obsłudze i dobrze nadaje się do nauki pracy z komponentami, stanem aplikacji oraz filtrowaniem danych.
 
-Jeśli chcesz, mogę też przygotować wersję tej dokumentacji w bardziej profesjonalnym stylu z sekcjami: "Architektura", "Zarządzanie stanem", "Rozszerzenia" oraz "Roadmapa rozwoju".
 
