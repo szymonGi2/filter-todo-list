@@ -28,7 +28,7 @@ const App = () => {
         ...taskList,
         { task: taskInput, type: taskType, taskCompleted: false },
       ]);
-      setTaskInput(""); // TERAZ TO ZADZIAŁA POPRAWNIE dzięki value={taskInput} poniżej
+      setTaskInput("");
     }
   };
 
@@ -58,7 +58,7 @@ const App = () => {
     <div className="app-container">
       <h1>To Do List</h1>
       <div id="input-area">
-        {/* Dopisano value={taskInput} aby kontrolować reset pola */}
+        {/*value={taskInput} aby kontrolować reset pola */}
         <input
           id="taskInput"
           type="text"
